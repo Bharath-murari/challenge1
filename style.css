@@ -4,16 +4,19 @@ body, html {
     height: 100%;
 }
 .container {
-    height: 100vh;
+    min-height: 100vh;
     display: grid;
     grid-template-columns: 9fr 16fr;
     position: relative;
 }
 .left {
     background-color: #36dbe5;
+    position: relative;
 }
 .right {
-    background-color:#249ee3;
+    background-color: #249ee3;
+    padding: 20px;
+    box-sizing: border-box;
 }
 .contentleft {
     margin-top: 200px;
@@ -38,45 +41,46 @@ p {
     padding: 10px;
 }
 .datebox {
-    display: grid;
-  grid-template-columns: 0.1fr 0.1fr;
-  grid-template-rows: 0.1 fr 0.1 fr;
-  font-family:sans-serif;
-  
-  position: relative;
-  left: 300px;
-  top:70px;
-  color: white;
-  padding: 0px;
-    
-    
+    display: flex;
+    justify-content: flex-end;
+    font-family: sans-serif;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: white;
+    padding: 0px;
+    text-align: right;
 }
 .date {
-  display: flex;
-  flex-direction: row;
-  font-size: 100px;
-  font-weight: 400;
-  margin-right: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 100px;
+    font-weight: 400;
+    margin-right: 10px;
 }
 .my {
-
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
+    justify-content: space-between;
+    margin-top: 20px;
+    height: 100%;
+}
+.month, .year {
     font-size: 40px;
     font-weight: 700;
+    line-height: 1;
 }
 .calendar {
     display: inline-block;
     font-family: Arial, sans-serif;
     background-color: white;
-    
-    height: 600px;
-    width: 600px;
-    margin-left: 130px;
-    margin-top: 130px;
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    margin: 130px auto 0;
     padding: 20px;
     border-radius: 20px;
+    box-sizing: border-box;
 }
 .header {
     font-weight: bold;
@@ -113,18 +117,18 @@ p {
 .days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-gap: 1px;
+    grid-gap: 5px;
     background-color: white;
 }
 .day {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 80px;
-    height: 80px;
+    aspect-ratio: 1 / 1;
+    max-width: 80px;
+    max-height: 80px;
     background-color: #fff;
     border-radius: 50%;
-
     border: solid 2px #D5D4DF;
     cursor: pointer;
 }
@@ -165,12 +169,71 @@ a:hover {
     .left, .right {
         width: 100%;
     }
+    .right {
+        padding: 10px;
+    }
     .calendar {
-        margin-left: 0;
-        width: 100%;
-        height: auto;
+        margin: 20px auto;
+        width: 90%;
     }
     .datebox {
-        left: 10px;
+        right: 20px;
+        top: 20px;
+    }
+    .contentleft {
+        margin-top: 120px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    p {
+        width: auto;
+        max-width: 350px;
+    }
+    .date {
+        font-size: 70px;
+        margin-top: 10px;
+    }
+    .month, .year {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .right {
+        padding: 10px;
+    }
+    .calendar {
+        width: 95%;
+        padding: 10px;
+        margin: 10px auto;
+    }
+    .day {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
+    .weekdays > div {
+        margin-bottom: 15px;
+        margin-right: 15px;
+        font-size: 0.9rem;
+    }
+    .header {
+        font-size: 1.2rem;
+        padding: 15px;
+    }
+    .round {
+        width: 30px;
+        height: 30px;
+        margin-right: 25px;
+    }
+    .datebox {
+        right: 10px;
+        top: 10px;
+    }
+    .date {
+        font-size: 50px;
+    }
+    .month, .year {
+        font-size: 25px;
     }
 }
