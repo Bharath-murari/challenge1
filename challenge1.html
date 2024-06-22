@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge 1</title>
+    <style>
+        body{
+            height: 100vh;
+            display: grid;
+            grid-row: 1fr 2fr;
+        }
+        .container{
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            position: relative;
+        }
+        .left{
+            background-color: aqua;
+            
+        }
+        .right{
+            background-color: rgb(5, 195, 248);
+        }
+        .contentleft{
+            margin-top: 200px;
+            margin-left: 30px;
+            height: 100vh;
+            font-family:sans-serif;
+            align-items: center;
+            opacity: 0.8;
+        }
+        .contentright{
+            
+        }
+        h3{
+            font-size:1.5rem ;
+        }
+        p{
+            font-weight: normal;
+            display: block;
+            font-size: 1.5rem;
+            background-color:whitesmoke;
+            width:fit-content;
+            opacity: 0.6;
+            border-radius: 10px;
+            padding: 5px;
+        }
+        .datebox{
+          display: grid;
+          grid-template-columns: 0.1fr 0.1fr;
+          grid-template-rows: 0.1 fr 0.1 fr;
+          font-family:sans-serif;
+          
+          position: relative;
+          left: 300px;
+          top:70px;
+          color: white;
+          padding: 0px;
+
+        }
+        .date{
+          display: flex;
+          flex-direction: row;
+          font-size: 100px;
+          font-weight: 400;
+          margin-right: 10px;
+        }
+        .my{
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+            font-size: 40px;
+            font-weight: 700;
+        }
+        
+        .calendar {
+            display: inline-block;
+            font-family: Arial, sans-serif;
+            background-color: white;
+            height: 600px;
+            width: 600px;
+            margin-left: 130px;
+            margin-top: 130px;
+            padding: 20px;
+            border-radius: 20px;
+        }
+        .header {
+            font-weight: bold;
+            padding: 30px;
+            font-size: 1.5rem;
+            position: relative;
+        }
+        .previous, .next {
+            position: absolute;
+            top: 30px;
+            right: 1.9rem; 
+            padding: 0 10px; 
+        }
+        .next {
+            right: 0.8rem; 
+        }
+        .weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            background-color: white;
+            padding-left: 5px;
+        }
+        .weekdays>div{
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+            margin-right: 35px;
+            font-size: 1.2rem;
+            font-weight: 550;
+        }
+        .days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            grid-gap: 1px;
+            background-color: white
+        }
+        
+        .day {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 80px;
+            height: 80px;
+            background-color: #fff;
+            border-radius: 50%;
+            border:solid 1px rgb(136, 125, 125);
+        }
+        .blue {
+            background-color: #00FFFF;
+        }
+        .cyan {
+            background-color: #00FFFF;
+        }
+        .orange {
+            background-color: #FFA500;
+        }
+        .grey{
+            background-color: grey;
+            opacity: 0.2;
+            font-weight: 900;
+            color: red;
+        }
+        .round {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            padding: 0px;
+            margin-right: 55px;
+        }
+        a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="datebox">
+                <div class="date">02</div>
+                <div class="my">
+                <div class="month">JULY</div>
+                <div class="year">2021</div>
+                </div>
+              </div>
+            <div class="contentleft">
+                
+            <h3>TODAY'S DEADLINES </h3>
+            <p>Complete front end challenge</p>
+            <p>Complete UI/UX challenge</p>
+            <br>
+            <br>
+            <h3>UPCOMING DEADLINES</h3>
+            <p>Do something</p>
+            <p>Finish personal projects</p>
+            </div>
+        </div>
+        <div class="right">
+            <div class="contentright">
+                <div class="calendar">
+                    <div class="header">June 2024
+                      <a href="#" class="previous round">&#8249;</a>
+                      <a href="#" class="next round">&#8250;</a>
+                    </div>
+                    <div class="weekdays">
+                      <div>Mo</div>
+                      <div>Tu</div>
+                      <div>We</div>
+                      <div>Th</div>
+                      <div>Fr</div>
+                      <div>Sa</div>
+                      <div>Su</div>
+                    </div>
+                    <div class="days">
+                      <div class="day">1</div>
+                      <div class="day">2</div>
+                      <div class="day">3</div>
+                      <div class="day">4</div>
+                      <div class="day">5</div>
+                      <div class="day">6</div>
+                      <div class="day">7</div>
+                      <div class="day">8</div>
+                      <div class="day">9</div>
+                      <div class="day">10</div>
+                      <div class="day">11</div>
+                      <div class="day">12</div>
+                      <div class="day">13</div>
+                      <div class="day">14</div>
+                      <div class="day">15</div>
+                      <div class="day blue">16</div>
+                      <div class="day orange">17</div>
+                      <div class="day orange">18</div>
+                      <div class="day orange">19</div>
+                      <div class="day orange">20</div>
+                      <div class="day ">21</div>
+                      <div class="day ">22</div>
+                      <div class="day ">23</div>
+                      <div class="day ">24</div>
+                      <div class="day ">25</div>
+                      <div class="day">26</div>
+                      <div class="day">27</div>
+                      <div class="day">28</div>
+                      <div class="day">29</div>
+                      <div class="day">30</div>
+                      <div class="day">31</div>
+                      <div class="day grey">1</div>
+                      <div class="day grey">2</div>
+                      <div class="day grey">3</div>
+                      <div class="day grey">4</div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

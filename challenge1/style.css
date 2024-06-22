@@ -1,0 +1,176 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+.container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 9fr 16fr;
+    position: relative;
+}
+.left {
+    background-color: #36dbe5;
+}
+.right {
+    background-color:#249ee3;
+}
+.contentleft {
+    margin-top: 200px;
+    margin-left: 30px;
+    height: 100vh;
+    font-family: sans-serif;
+    align-items: center;
+    opacity: 0.8;
+    position: relative;
+}
+h3 {
+    font-size: 1.5rem;
+}
+p {
+    font-weight: normal;
+    display: block;
+    font-size: 1.5rem;
+    background-color: whitesmoke;
+    width: 350px;
+    opacity: 0.6;
+    border-radius: 10px;
+    padding: 10px;
+}
+.datebox {
+    display: grid;
+  grid-template-columns: 0.1fr 0.1fr;
+  grid-template-rows: 0.1 fr 0.1 fr;
+  font-family:sans-serif;
+  
+  position: relative;
+  left: 300px;
+  top:70px;
+  color: white;
+  padding: 0px;
+    
+    
+}
+.date {
+  display: flex;
+  flex-direction: row;
+  font-size: 100px;
+  font-weight: 400;
+  margin-right: 10px;
+}
+.my {
+
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    font-size: 40px;
+    font-weight: 700;
+}
+.calendar {
+    display: inline-block;
+    font-family: Arial, sans-serif;
+    background-color: white;
+    
+    height: 600px;
+    width: 600px;
+    margin-left: 130px;
+    margin-top: 130px;
+    padding: 20px;
+    border-radius: 20px;
+}
+.header {
+    font-weight: bold;
+    padding: 30px;
+    font-size: 1.5rem;
+    position: relative;
+}
+.previous, .next {
+    position: absolute;
+    top: 30px;
+    right: 1.9rem;
+    padding: 0 10px;
+    text-decoration: none;
+    color: inherit;
+}
+.next {
+    right: 0.8rem;
+}
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background-color: white;
+    padding-left: 5px;
+}
+.weekdays > div {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    margin-right: 35px;
+    font-size: 1.2rem;
+    font-weight: 550;
+}
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 1px;
+    background-color: white;
+}
+.day {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    background-color: #fff;
+    border-radius: 50%;
+
+    border: solid 2px #D5D4DF;
+    cursor: pointer;
+}
+.blue {
+    background-color: #5ed3ec;
+    color: white;
+}
+.cyan {
+    background-color: #00FFFF;
+    color: white;
+}
+.orange {
+    background-color: #f77600;
+    color: white;
+}
+.grey {
+    background-color: grey;
+    opacity: 0.2;
+    font-weight: 900;
+    color: red;
+}
+.round {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 0px;
+    margin-right: 55px;
+}
+a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+@media (max-width: 360px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+    .left, .right {
+        width: 100%;
+    }
+    .calendar {
+        margin-left: 0;
+        width: 100%;
+        height: auto;
+    }
+    .datebox {
+        left: 10px;
+    }
+}

@@ -46,27 +46,23 @@
         }
         .datebox {
             display: grid;
-          grid-template-columns: 0.1fr 0.1fr;
-          grid-template-rows: 0.1 fr 0.1 fr;
-          font-family:sans-serif;
-          
-          position: relative;
-          left: 300px;
-          top:70px;
-          color: white;
-          padding: 0px;
-            
-            
+            grid-template-columns: 0.1fr 0.1fr;
+            grid-template-rows: 0.1fr 0.1fr;
+            font-family:sans-serif;
+            position: relative;
+            left: 300px;
+            top:70px;
+            color: white;
+            padding: 0px;
         }
         .date {
-          display: flex;
-          flex-direction: row;
-          font-size: 100px;
-          font-weight: 400;
-          margin-right: 10px;
+            display: flex;
+            flex-direction: row;
+            font-size: 100px;
+            font-weight: 400;
+            margin-right: 10px;
         }
         .my {
-
             display: flex;
             flex-direction: column;
             margin-top: 10px;
@@ -77,7 +73,6 @@
             display: inline-block;
             font-family: Arial, sans-serif;
             background-color: white;
-            
             height: 600px;
             width: 600px;
             margin-left: 130px;
@@ -131,8 +126,7 @@
             height: 80px;
             background-color: #fff;
             border-radius: 50%;
-
-            border: solid 2px #D5D4DF;
+            border: solid 1px rgb(136, 125, 125);
             cursor: pointer;
         }
         .blue {
@@ -194,14 +188,12 @@
                 </div>
             </div>
             <div class="contentleft">
-                <h3>TODAY'S DEADLINES </h3>
-                <p>Complete front end challenge</p>
-                <p>Complete UI/UX challenge</p>
+                <h3>TODAY'S DEADLINES</h3>
+                <div id="todayDeadlines"></div>
                 <br>
                 <br>
                 <h3>UPCOMING DEADLINES</h3>
-                <p>Do something</p>
-                <p>Finish personal projects</p>
+                <div id="upcomingDeadlines"></div>
             </div>
         </div>
         <div class="right">
@@ -233,8 +225,44 @@
             const selectedDate = document.getElementById('selectedDate');
             const selectedMonth = document.getElementById('selectedMonth');
             const selectedYear = document.getElementById('selectedYear');
+            const todayDeadlines = document.getElementById('todayDeadlines');
+            const upcomingDeadlines = document.getElementById('upcomingDeadlines');
 
             const months = ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMBER', 'DECEMBER'];
+
+            // Sample deadlines for each date
+            const deadlines = {
+                1: ["Start Digital Design project", "Java Programming lab report due"],
+                2: ["Submit CAD assignment", "Prepare for Thermodynamics quiz"],
+                3: ["Electronics lab experiment", "Data Structures tutorial submission"],
+                4: ["Attend VLSI Design workshop", "Mechanical Engineering seminar"],
+                5: ["Software Engineering project meeting", "Submit Physics lab report"],
+                6: ["Prepare for Control Systems mid-term", "Attend IEEE student chapter meeting"],
+                7: ["Submit Machine Learning assignment", "Robotics club project work"],
+                8: ["Fluid Mechanics numerical problems due", "Prepare for Algorithms presentation"],
+                9: ["Attend Industry 4.0 guest lecture", "Submit Technical Paper for conference"],
+                10: ["Computer Networks practical exam", "Prepare for Materials Science viva"],
+                11: ["Submit IoT project proposal", "Attend career guidance session"],
+                12: ["Database Management Systems assignment due", "Prepare for Signals and Systems quiz"],
+                13: ["Submit Embedded Systems project report", "Attend AI in Healthcare seminar"],
+                14: ["Prepare for Operating Systems practical exam", "Submit Environmental Engineering assignment"],
+                15: ["Attend Blockchain Technology workshop", "Submit Microprocessors lab record"],
+                16: ["Prepare for Digital Signal Processing mid-term", "Attend VIT Hackathon briefing"],
+                17: ["Submit Computer Graphics project", "Prepare for Power Electronics quiz"],
+                18: ["Attend Renewable Energy Technologies seminar", "Submit Compiler Design assignment"],
+                19: ["Prepare for VLSI Design viva", "Attend Cybersecurity awareness program"],
+                20: ["Submit Artificial Intelligence project", "Prepare for Control Systems lab exam"],
+                21: ["Attend VIT TechFest opening ceremony", "Submit Web Technologies project"],
+                22: ["Prepare for Data Mining presentation", "Submit Antenna Design simulation results"],
+                23: ["Attend Cloud Computing workshop", "Prepare for Digital Communication quiz"],
+                24: ["Submit Nanotechnology research paper", "Attend Entrepreneurship Development Program"],
+                25: ["Prepare for Computer Architecture mid-term", "Submit Wireless Networks project report"],
+                26: ["Attend IoT Hackathon", "Prepare for Advanced Algorithms presentation"],
+                27: ["Submit Mechatronics project", "Prepare for GATE mock test"],
+                28: ["Attend Industry-Academia Meet", "Submit Software Testing assignment"],
+                29: ["Prepare for Machine Vision lab exam", "Submit Cryptography and Network Security project"],
+                30: ["Attend VIT TechFest closing ceremony", "Submit final year project progress report"]
+            };
 
             function createCalendar() {
                 const date = new Date(2024, 5, 1); 
@@ -255,6 +283,8 @@
 
                     dayElement.addEventListener('click', function() {
                         if (!this.classList.contains('grey')) {
+                            const clickedDate = parseInt(this.textContent);
+                            updateDeadlines(clickedDate);
                             selectedDate.textContent = this.textContent.padStart(2, '0');
                             selectedMonth.textContent = 'JUNE';
                             selectedYear.textContent = '2024';
@@ -265,7 +295,36 @@
                 }
             }
 
+            function updateDeadlines(date) {
+                // Clear previous deadlines
+                todayDeadlines.innerHTML = '';
+                upcomingDeadlines.innerHTML = '';
+
+                // Update today's deadlines
+                if (deadlines[date]) {
+                    deadlines[date].forEach(deadline => {
+                        const p = document.createElement('p');
+                        p.textContent = deadline;
+                        todayDeadlines.appendChild(p);
+                    });
+                }
+
+                // Update upcoming deadlines (next 3 days)
+                for (let i = 1; i <= 3; i++) {
+                    const upcomingDate = date + i;
+                    if (upcomingDate <= 30 && deadlines[upcomingDate]) {
+                        deadlines[upcomingDate].forEach(deadline => {
+                            const p = document.createElement('p');
+                            p.textContent = `${upcomingDate} June: ${deadline}`;
+                            upcomingDeadlines.appendChild(p);
+                        });
+                    }
+                }
+            }
+
             createCalendar();
+            // Initialize with the first day's deadlines
+            updateDeadlines(1);
         });
     </script>
 </body>
